@@ -48,25 +48,32 @@ get_header();
 
 				<?php if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) : ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) : ?>
+						<div class="english-bar">
 						<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<?php endif; ?>
-
+					
 					<?php
-						et_divi_post_meta();
-
+						et_divi_post_meta(); ?>
+						
+						<?php
 						if ( 'on' !== et_get_option( 'divi_blog_style', 'false' ) || ( is_search() && ( 'on' === get_post_meta( get_the_ID(), '_et_pb_use_builder', true ) ) ) ) {
-							truncate_post( 270 );
-							$val = get_post_meta(get_the_ID(), 'spanish_title', true); ?>
-							<h2 class="spanish-title"><a href="../wp-content/themes/virginia-avp/spanish-version.php"><?php echo $val; ?></a></h2>	
+							truncate_post( 270 ); ?>
+							</div> <!-- .english-bar -->
+							<div class="spanish-bar">
+							<?php
+							$val = get_post_meta(get_the_ID(), 'spanish_title', true); 
+							$spanish_url = add_query_arg('pageid',get_the_id(),'spanish-version'); ?>
+							<h2 class="spanish-title"><a href="<?php echo $spanish_url; ?>"><?php echo $val; ?></a></h2>	
 							<?php
 							$val = get_post_meta(get_the_ID(), 'spanish_content', true);    
 							$val = strip_shortcodes( $val );    
 							$val = apply_filters('the_content', $val);	    
 							$val = str_replace(']]&gt;', ']]&gt;', $val);	    
-							$excerpt_length = 20; // 20 words	    
+							$excerpt_length = 40; // 40 words	    
 							$excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');	  
 							$val = wp_trim_words( $val, $excerpt_length, $excerpt_more ); ?>  
 							<p class="spanish-meta"><?php echo $val; ?></p>   
+							</div> <!-- .spanish-bar -->
 							<?php
 						} else {
 							the_content();

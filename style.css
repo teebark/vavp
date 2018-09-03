@@ -9,6 +9,13 @@ Template:    Divi
 */
 
 /*- Add any CSS custom code for this child theme below this line -*/
-h2.spanish-title {
+.blog .english-bar {
+	border-left: solid green 5px;
+	padding-left: 5px;
+}
+
+.blog .spanish-bar {
+	border-left: solid orange 5px;
 	margin-top: 20px;
+	padding-left: 5px;
 }
