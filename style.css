@@ -7,15 +7,91 @@ Author:      teebark
 Author URI:  http://vavp.it4causeshosting.org
 Template:    Divi
 */
-
 /*- Add any CSS custom code for this child theme below this line -*/
+/* Assign color variables */
+:root {
+  --brown: #ffd16f;
+  --green: #bbe0ce;
+  --blue: #a9daeb;
+  --red: #f8c5ce
+}
+#top-header {
+	background-color: var(--blue, blue);
+}
+#main-header {
+	background-color: var(--green, green);
+}
+/* Create a bar to show English/Spanish versions */
 .blog .english-bar {
-	border-left: solid green 5px;
+	border-left: solid var(--green, green) 5px;
 	padding-left: 5px;
 }
-
 .blog .spanish-bar {
-	border-left: solid orange 5px;
+	border-left: solid var(--red, red) 5px;
 	margin-top: 20px;
 	padding-left: 5px;
+}
+/* Necessary to prevent gap between top and main headers */
+#page-container .container { 
+	padding-top: 12px !important; 
+}  
+.et_pb_section {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+/* Allow text overlay on image */
+.blurb-1 .et_pb_blurb_content, 
+.blurb-2 .et_pb_blurb_content,
+.blurb-3 .et_pb_blurb_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.blurb-1 .et_pb_blurb_container,
+.blurb-2 .et_pb_blurb_container,
+.blurb-3 .et_pb_blurb_container {
+  position: absolute;
+  align-self: center;
+}
+.blurb-1 .et_pb_main_blurb_image,
+.blurb-2 .et_pb_main_blurb_image,
+.blurb-3 .et_pb_main_blurb_image {
+	margin: 0;
+}
+.blurb-1 h4,
+.blurb-2 h4,
+.blurb-3 h4 {
+	color: white;
+	font-size: 2em;
+	font-weight: bold;
+	text-shadow: 2px 2px 0 black;
+}
+/* Highlight link on blurb image */
+.blurb-1 .et_pb_blurb_container h4 a:hover,
+.blurb-2 .et_pb_blurb_container h4 a:hover,
+.blurb-3 .et_pb_blurb_container h4 a:hover {
+  background: rgba(255,255,255,0.5);
+}
+#et-secondary-menu .et-social-icons {
+	margin-left: 20px;
+    margin-right: 20px;
+	float: right;
+}
+/* Create donate button on top header */
+.top-donate {
+	width: 90px !important;
+}
+.top-donate a {
+	font-size: 1.5em !important;
+}
+.top-espanol {
+	width: 100px !important;
+}
+/* Create Espanol link on top header--only shows on home page */
+.top-espanol a {
+	font-size: 1.5em !important;
+	display: none !important;
+}
+.home .top-espanol a {
+	display: contents !important;
 }

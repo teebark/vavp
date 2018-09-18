@@ -1,7 +1,7 @@
 <?php
 /* Modified version of Divi index.php for vavp blog page */
 get_header(); 
-/* echo do_shortcode('[et_pb_section global_module="189"][/et_pb_section]'); */ ?>
+echo do_shortcode('[et_pb_section global_module="189"][/et_pb_section]'); ?>
 
 <div id="main-content">
 	<div class="container">
@@ -49,7 +49,11 @@ get_header();
 				<?php if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) : ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) : ?>
 						<div class="english-bar">
-						<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<?php>
+						$english_url = add_query_arg('pageid',get_the_id(),'english-version'); ?>
+						<h2 class="english-title"><a href="<?php echo $english_url; ?>"><?php the_title(); ?></a></h2>
+						<!-- original version -->
+						<!-- <h2 class="entry-title"><a href="<?php // the_permalink(); ?>"><?php // the_title(); ?></a></h2> -->
 					<?php endif; ?>
 					
 					<?php
@@ -95,7 +99,7 @@ get_header();
 			?>
 			</div> <!-- #left-area -->
 
-			<?php get_sidebar(); ?>
+			<?php // get_sidebar(); ?>
 		</div> <!-- #content-area -->
 	</div> <!-- .container -->
 </div> <!-- #main-content -->

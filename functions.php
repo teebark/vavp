@@ -14,9 +14,6 @@
 require_once('divi-children-engine/divi_children_engine.php');
 
 /***********************************************************************************************/
-
-
 /*- You can include any custom code for your child theme below this line -*/
-
 
 ?>
