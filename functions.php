@@ -15,5 +15,13 @@ require_once('divi-children-engine/divi_children_engine.php');
 
 /***********************************************************************************************/
 /*- You can include any custom code for your child theme below this line -*/
-
+function register_my_menus() {
+  register_nav_menus (
+    array (
+	'espanol-menu' => __( 'Espanol Menu' ),
+	'espanol-top-menu' => __(' Espanol top' )
+	)
+  );
+}
+add_action( 'init', 'register_my_menus' );
 ?>
