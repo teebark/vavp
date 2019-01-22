@@ -54,7 +54,32 @@
 	$show_header_social_icons = $et_secondary_nav_items->show_header_social_icons;
 
 	$et_secondary_nav = $et_secondary_nav_items->secondary_nav;
+	
+	if ( is_page('home-page-espanol' ) || is_page('spanish-page' )) {
+		$lang = 'spanish';
+	}
+	else {
+		$lang = 'english';
+	}
 
+	if($lang == 'english') {
+	$et_secondary_nav = wp_nav_menu( array(
+			'theme_location' => 'secondary-menu',
+			'container'      => '',
+			'fallback_cb'    => '',
+			'menu_id'        => 'et-secondary-nav',
+			'echo'           => false,
+		) );
+		}
+	else {
+	$et_secondary_nav = wp_nav_menu( array(
+			'theme_location' => 'espanol-top',
+			'container'      => '',
+			'fallback_cb'    => '',
+			'menu_id'        => 'et-secondary-nav',
+			'echo'           => false,
+		) );
+	}
 	$et_top_info_defined = $et_secondary_nav_items->top_info_defined;
 
 	$et_slide_header = 'slide' === et_get_option( 'header_style', 'left' ) || 'fullscreen' === et_get_option( 'header_style', 'left' ) ? true : false;
@@ -289,3 +314,12 @@
 		</header> <!-- #main-header -->
 
 		<div id="et-main-area">
+<script type="text/javascript">
+(function (d, t) {
+   var pp = d.createElement(t), s = d.getElementsByTagName(t)[0];
+   pp.src = '//app.pageproofer.com/overlay/js/3665/1247';
+   pp.type = 'text/javascript';
+   pp.async = true;
+   s.parentNode.insertBefore(pp, s);
+})(document, 'script');
+</script> 
