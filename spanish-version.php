@@ -16,9 +16,11 @@ $pageid = $_GET['pageid'];
 				/* get the id for the english version page */
 				$english_post = get_page_by_path('english-version');
 				$english_id = $english_post->ID;
+				/*
 				$english_url = add_query_arg('pageid',$pageid,'/english-version/'); ?>
 				Click <a href="<?php echo $english_url; ?>">here</a> for English version of this post</div>
 				</br>
+				*/ ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php $val = get_post_meta($pageid, 'spanish_title', true); ?>
 				<h2><?php echo $val; ?></h2>

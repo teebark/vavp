@@ -34,7 +34,65 @@ Template:    Divi
 #main-header {
 	background-color: var(--primary-color, lightcyan);
 }
+/* Prevent header jump */
+/*
+#page-container {
+padding-top: 196px;
+}
+#main-header {
+top: 41px;
+}
+*/
+/* Quick escape */
+#top-header a.get-away {
+	color: red;
+	background-color: yellow;
+	font-size: 1.5em;
+	border-radius: 5px;
+	border: 9px solid yellow;
+	border-bottom: 0;
+	border-top: 0;
+	margin-right: 20px;
+}
+#et-secondary-menu li.get-away a {
+	color: red;
+}
+/* Make header fixed on mobile */
+@media (max-width: 980px) {
+.et_non_fixed_nav.et_transparent_nav #main-header, .et_non_fixed_nav.et_transparent_nav #top-header, .et_fixed_nav #main-header, .et_fixed_nav #top-header {
+    position: fixed;
+}
+}
+.et_mobile_menu {
+    overflow: scroll !important;
+    max-height: 83vh;
+}
+/* Make mobile secondary menu visibility hidden instead of display none */
+@media (max-width: 980px) {
+#et-secondary-menu {
+	display: inline-block !important;
+	visibility: hidden !important;
+}
+}
+/* Make escape key visible on mobile */
+@media (max-width: 980px) {
+#custom_html-2 > div > a {
+	visibility: visible;
+    border: 0;
+    position: fixed;
+    bottom: 80%;
+    left: 80%;
+    width: 100px;
+    border-radius: 12px;
+    font: 20px Sans-Serif;
+    background: #d83e17;
+    color: white;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+}
 /* Create a bar to show English/Spanish versions */
+/* For first version 
 .blog .english-bar,
 #vavp-page .english-bar,
 #news-updates .english-bar,
@@ -52,6 +110,7 @@ Template:    Divi
 	margin-top: 20px;
 	padding-left: 5px;
 }
+*/
 #main-content .container {
 	padding-top: 0;
 }

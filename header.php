@@ -55,31 +55,34 @@
 
 	$et_secondary_nav = $et_secondary_nav_items->secondary_nav;
 	
-	if ( is_page('home-page-espanol' ) || is_page('spanish-page' )) {
+	if ( is_page('home-page-espanol' ) || is_page('spanish-page' )) :
 		$lang = 'spanish';
-	}
-	else {
+	elseif ( is_front_page() || is_page('english-page' )) :
 		$lang = 'english';
-	}
+	else :
+		$lang = $_GET['lang'];
+		if ( is_null($lang)) :
+			$lang = 'english';
+		endif;
+	endif;
 
-	if($lang == 'english') {
-	$et_secondary_nav = wp_nav_menu( array(
+	if ( $lang == 'english' ) :
+		$et_secondary_nav = wp_nav_menu( array(
 			'theme_location' => 'secondary-menu',
 			'container'      => '',
 			'fallback_cb'    => '',
 			'menu_id'        => 'et-secondary-nav',
 			'echo'           => false,
 		) );
-		}
-	else {
-	$et_secondary_nav = wp_nav_menu( array(
+	else :
+		$et_secondary_nav = wp_nav_menu( array(
 			'theme_location' => 'espanol-top',
 			'container'      => '',
 			'fallback_cb'    => '',
 			'menu_id'        => 'et-secondary-nav',
 			'echo'           => false,
 		) );
-	}
+	endif;
 	$et_top_info_defined = $et_secondary_nav_items->top_info_defined;
 
 	$et_slide_header = 'slide' === et_get_option( 'header_style', 'left' ) || 'fullscreen' === et_get_option( 'header_style', 'left' ) ? true : false;
@@ -250,13 +253,12 @@
 							$menuClass = 'nav';
 							if ( 'on' == et_get_option( 'divi_disable_toptier' ) ) $menuClass .= ' et_disable_top_tier';
 							$primaryNav = '';
-							if (is_page('home-page-espanol') || is_page('spanish-page')) {
+							if ( $lang == 'spanish' ) :
 								/* use espanol menu instad of divi's */
 								$primaryNav = wp_nav_menu( array( 'theme_location' => 'espanol-menu', 'container' => '', 'fallback_cb' => '', 'menu_class' => $menuClass, 'menu_id' => 'top-menu', 'echo' => false ) );
-							}
-							else {
+							else :
 								$primaryNav = wp_nav_menu( array( 'theme_location' => 'primary-menu', 'container' => '', 'fallback_cb' => '', 'menu_class' => $menuClass, 'menu_id' => 'top-menu', 'echo' => false ) );
-							}						
+							endif;						
 							
 							if ( '' == $primaryNav ) :
 						?>

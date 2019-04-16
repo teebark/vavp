@@ -6,12 +6,6 @@ get_header();
 $slug = $_GET['slug'];
 $page_post = get_page_by_path($slug);
 $pageid = $page_post->ID;
-/*
- echo 'Referer = ' . $referer;
- echo 'Path = ' . $path;
- echo 'Slug = ' . $slug;
- echo 'Pageid = ' . $pageid;
-*/
 ?>
 
 <div id="main-content">
